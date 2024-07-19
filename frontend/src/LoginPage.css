@@ -1,0 +1,137 @@
+/* CSS Reset (optional) */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #1e1e1e; /* Dark background */
+  color: #ffffff; /* White text */
+}
+
+.logo {
+  width: 100px; /* Adjust size as needed */
+  margin-bottom: 10px; /* Space below logo */
+}
+
+.app-name {
+  font-size: 24px; /* Adjust font size as needed */
+  margin-bottom: 20px; /* Space below app name */
+}
+
+h2 {
+  font-size: 18px; /* Smaller font size for login and signup headings */
+  margin-bottom: 20px; /* Space below headings */
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 300px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.option-group {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  justify-content: center; /* Center align options */
+}
+
+.option {
+  cursor: pointer;
+  font-size: 16px;
+  color: #ffffff; /* White text */
+  text-decoration: none; /* No underline by default */
+}
+
+.option:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+label {
+  font-size: 14px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #555555;
+  background-color: #333333; /* Gray background */
+  color: #ffffff;
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+input:focus,
+input:hover {
+  background-color: #444444; /* Darker background on focus and hover */
+  color: #ffffff; /* Maintain the same text color */
+  outline: none; /* Remove default outline */
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  background-color: #333333; /* Maintain the same background color */
+  color: #ffffff; /* Maintain the same text color */
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus,
+input[type="email"]:hover,
+input[type="password"]:hover,
+input[type="text"]:hover {
+  background-color: #444444; /* Darker background on focus and hover */
+  color: #ffffff; /* Maintain the same text color */
+}
+
+.submit-button,
+.toggle-button {
+  padding: 12px 0; /* Increased padding */
+  width: 100%; /* Full width */
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px; /* Larger font size */
+}
+
+.submit-button {
+  background-color: #0069d9; /* Adjusted blue color to match the logo */
+  color: #ffffff;
+}
+
+.submit-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.toggle-button {
+  background: none; /* Remove background color */
+  color: #ffffff;
+  padding: 10px; /* Adjust padding to your preference */
+  text-align: center; /* Center align text */
+  border: none;
+  cursor: pointer;
+  font-size: 18px; /* Larger font size for toggle button */
+}
+
+.toggle-button:hover {
+  color: #ffffff;
+  text-decoration: underline; /* Underline effect on hover */
+  background: none; /* Ensure background remains none */
+}
+

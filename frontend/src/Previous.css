@@ -1,0 +1,39 @@
+/* Previous.css */
+.previous-page-container {
+    padding: 20px;
+    color: #fff;
+  }
+  
+  .previous-page-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .previous-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .previous-grid-item {
+    background-color: #1e1e2e;
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .event-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .event-details {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+  }
+  
+  .event-participants {
+    font-size: 0.8em;
+    color: #888;
+  }
+  

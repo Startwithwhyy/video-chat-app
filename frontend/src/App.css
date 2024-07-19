@@ -25,24 +25,22 @@ body {
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
   }
   
   .video {
-	  position: relative;
-	  width: 400px; /* Increased width */
-	  height: 300px; /* Increased height */
-	  background-color: #292929; /* Darker video background */
-	  border-radius: 8px;
-	  overflow: hidden;
-	}
-	
-	video {
-	  width: 100%;
-	  height: 100%;
-	  border-radius: 8px;
-	}
-	
+	position: relative;
+	width: 400px; /* Increased width */
+	height: 450px; /* Increased height */
+	border-radius: 8px;
+	overflow: hidden;
+  }
+  
+  video {
+	width: 100%;
+	height: 100%;
+	border-radius: 8px;
+  }
   
   .video-buttons {
 	position: absolute;
@@ -51,6 +49,7 @@ body {
 	transform: translateX(-50%);
 	display: flex;
 	gap: 10px;
+	margin-bottom: -1px;
   }
   
   .video-buttons button {
@@ -69,11 +68,11 @@ body {
   .controls {
 	display: flex;
 	gap: 10px;
-	margin-bottom: 20px;
+	margin-top: 20px;
   }
   
   button {
-	background-color: #0078d4; /* Blue accent for buttons */
+	background-color: #0078d4; /* Blue buttons */
 	color: #ffffff;
 	border: none;
 	padding: 10px;
@@ -90,7 +89,6 @@ body {
 	padding: 10px;
 	border-radius: 5px;
 	border: 1px solid #555555; /* Darker border for input fields */
-	margin-right: 10px;
   }
   
   .copy-id-button {
@@ -125,7 +123,7 @@ body {
   
   .caller-notification button {
 	margin-left: 10px;
-	background-color: #0078d4; /* Blue button */
+	background-color: #990a0c; /* Red button */
 	color: #ffffff;
 	border: none;
 	padding: 8px 12px;

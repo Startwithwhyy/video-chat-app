@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e; /* Dark background */
+  color: #ffffff; /* White text */
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #333; /* Darker header */
+  border-bottom: 1px solid #555; /* Border for separation */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff; /* White text */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.video {
+  position: relative;
+  margin: 10px;
+}
+
+video {
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.video-buttons {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.video-buttons button {
+  background-color: #555; /* Darker button background */
+  border: none;
+  color: #ffffff; /* White text */
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.video-buttons button:hover {
+  background-color: #777; /* Slightly lighter on hover */
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.controls input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.copy-id-button {
+  background-color: #555; /* Darker button background */
+  color: #ffffff; /* White text */
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.copy-id-button:hover {
+  background-color: #777; /* Slightly lighter on hover */
+}
+
+.caller-notification {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #333; /* Darker notification background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.caller-notification h2 {
+  margin: 0 0 10px 0;
+  color: #ffffff; /* White text */
+}
+
+.answer-decline-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.answer-button, .decline-button {
+  border: none;
+  color: #ffffff; /* White text */
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.answer-button:hover {
+  background-color: #28a745; /* Lighter green on hover */
+}
+
+.decline-button:hover {
+  background-color: #dc3545; /* Lighter red on hover */
+}

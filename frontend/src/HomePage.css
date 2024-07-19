@@ -1,0 +1,177 @@
+.home-container {
+  display: flex;
+}
+
+.drawer {
+  background-color: #333 !important;
+  color: #fff !important;
+  transition: width 0.2s;
+}
+
+.drawer.open {
+  width: 250px;
+}
+
+.drawer.closed {
+  width: 60px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.menu-button {
+  color: #fff;
+}
+
+.sidebar-logo {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.sidebar-title {
+  font-size: 1.2rem;
+  margin: 0;
+  color: white;
+}
+
+.MuiListItem-root,
+.MuiListItemIcon-root {
+  color: white !important;
+  transition: background-color 0.3s;
+}
+
+.MuiListItem-root:hover,
+.MuiListItemIcon-root:hover {
+  background-color: #0047ab !important; /* Dark blue hover color */
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.2s;
+  margin-left: 60px;
+}
+
+.content.open {
+  margin-left: 250px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center items horizontally */
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 10px;
+  border-bottom: none; /* Remove bottom border */
+  outline: none; /* Remove outline if present */
+}
+
+.profile-icon {
+  font-size: 2rem; /* Adjust icon size */
+  margin-left: auto; /* Push icon to the right */
+  background-color: #333; /* Background color for the icon */
+  color: #fff; /* Icon color */
+  width: 40px; /* Set a fixed width */
+  height: 40px; /* Set a fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Rounded shape */
+  cursor: pointer; /* Cursor style */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+  transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.profile-icon:hover {
+  transform: scale(1.1); /* Scale up slightly on hover */
+}
+
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.image-container {
+  position: relative;
+  width: 100%; /* Full width of the page */
+  max-width: 100%; /* Ensure it doesn't exceed its natural size */
+  overflow: hidden; /* Ensure the image doesn't overflow its container */
+}
+
+.home-image {
+  width: 100%; /* Fill the width of its container */
+  height: 75%; /* Maintain aspect ratio */
+  border-radius: 8px;
+  animation: fadeIn 2s ease-in-out;
+  display: block;
+  margin: 20px auto; /* Center the image horizontally */
+  margin-bottom: -90px;
+  margin-top: 6px;
+}
+
+.datetime {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  color: #fff;
+  z-index: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Optional: add text shadow for better visibility */
+}
+
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.action-button {
+
+  width: 400px; /* Adjusted width for large buttons */
+  height: 150px; /* Adjusted height for large buttons */
+  position: relative;
+  font-size: 1rem; /* Adjust font size */
+  text-align: right;
+}
+
+.action-button-icon {
+  
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 1.8rem;
+  background-color: rgba(172, 162, 162, 0.5);
+  border-radius: 10%;
+  padding: 2px;
+
+}
+.meeting-history {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 32px;
+}
+
+.meeting-card {
+ 
+  padding: 16px;
+  margin-bottom: 30px;
+  height: 40%;
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 100;
+
+  
+}
+.custom-background{
+  background-color: #333;
+}

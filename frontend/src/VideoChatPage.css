@@ -21,6 +21,7 @@ header {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  margin-top: 20px; /* Adjusted to give space above the container */
 }
 
 .video-container {
@@ -28,11 +29,15 @@ header {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  position: relative; /* Make sure it can be positioned absolutely */
 }
 
 .video {
-  position: relative;
-  margin: 10px;
+  position: absolute; /* Absolute positioning to move it up */
+  top: 0; /* Aligns it to the top of its container */
+  left: 50%;
+  transform: translateX(-50%); /* Centers the video horizontally */
+  margin: 0;
 }
 
 video {

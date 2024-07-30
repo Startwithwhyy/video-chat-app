@@ -1,7 +1,100 @@
-.home-container {
+/* Container for the entire page layout */
+.page-layout {
   display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevent overflow */
 }
 
+/* First row: Image section */
+.image-container {
+  position: relative;
+  width: 100%; /* Full width */
+  height: 50vh; /* Adjust height as needed */
+  overflow: hidden; /* Ensure the image doesn't overflow */
+  margin-bottom: 30px; /* Space between image and buttons */
+}
+
+.home-image {
+  width: 100%; /* Full width */
+  height: auto; /* Full height of the container */
+  object-fit: cover; /* Ensure the image covers the container */
+  display: block; /* Remove any unwanted space below the image */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
+  animation: fadeIn 2s ease-in-out; /* Fade-in animation */
+  opacity: 1; /* Ensure the image is visible */
+  animation-fill-mode: forwards; /* Ensure the image stays visible after the animation */
+}
+
+/* Date and time */
+.datetime {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  color: #fff;
+  z-index: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Optional: add text shadow for better visibility */
+}
+
+/* Second row: Action buttons */
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px 0;
+  padding: 0 50px; /* Add some padding for better alignment */
+}
+
+.action-button {
+  width: 200px; /* Adjust width */
+  height: 150px; /* Adjust height */
+  margin: 20px; /* Space between buttons */
+  position: relative;
+  font-size: 0.9rem; /* Adjust font size */
+  text-align: right;
+  background-color: #444; /* Darker background for buttons */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Add smooth transitions */
+}
+
+.action-button:hover {
+  transform: translateY(-5px); /* Lift button on hover */
+  background-color: #555; /* Change background color on hover */
+}
+
+.action-button-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.5rem;
+  background-color: rgba(172, 162, 162, 0.5);
+  border-radius: 10%;
+  padding: 2px;
+}
+
+/* Meeting history section */
+.meeting-history {
+  background-color: #1a1a1a; /* Darker grey background */
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto; /* Center the section and add margin */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+}
+
+.history-card {
+  padding: 16px;
+  margin-bottom: 20px;
+  background-color: #333; /* Darker grey background */
+  border-radius: 8px;
+  text-align: left;
+  font-size: 1rem; /* Adjust font size */
+  color: #fff; /* Card text color */
+}
+
+/* Preserve existing drawer styles */
 .drawer {
   background-color: #333 !important;
   color: #fff !important;
@@ -64,7 +157,7 @@
   display: flex;
   align-items: center;
   justify-content: center; /* Center items horizontally */
-  background-color: #1a1a1a;
+  background-color: #333;
   color: #fff;
   padding: 10px;
   border-bottom: none; /* Remove bottom border */
@@ -91,87 +184,10 @@
   transform: scale(1.1); /* Scale up slightly on hover */
 }
 
-
 .main-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
-}
-
-.image-container {
-  position: relative;
-  width: 100%; /* Full width of the page */
-  max-width: 100%; /* Ensure it doesn't exceed its natural size */
-  overflow: hidden; /* Ensure the image doesn't overflow its container */
-}
-
-.home-image {
-  width: 100%; /* Fill the width of its container */
-  height: 75%; /* Maintain aspect ratio */
-  border-radius: 8px;
-  animation: fadeIn 2s ease-in-out;
-  display: block;
-  margin: 20px auto; /* Center the image horizontally */
-  margin-bottom: -90px;
-  margin-top: 6px;
-}
-
-.datetime {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  color: #fff;
-  z-index: 1;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Optional: add text shadow for better visibility */
-}
-
-
-.action-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.action-button {
-
-  width: 400px; /* Adjusted width for large buttons */
-  height: 150px; /* Adjusted height for large buttons */
-  position: relative;
-  font-size: 1rem; /* Adjust font size */
-  text-align: right;
-}
-
-.action-button-icon {
-  
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  font-size: 1.8rem;
-  background-color: rgba(172, 162, 162, 0.5);
-  border-radius: 10%;
-  padding: 2px;
-
-}
-.meeting-history {
-  width: 100%;
-  max-width: 800px;
-  margin-top: 32px;
-}
-
-.meeting-card {
- 
-  padding: 16px;
-  margin-bottom: 30px;
-  height: 40%;
-  text-align: left;
-  font-size: 1.5rem;
-  font-weight: 100;
-
-  
-}
-.custom-background{
-  background-color: #333;
 }

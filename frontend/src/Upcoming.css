@@ -1,66 +1,68 @@
-/* Upcoming.css */
-
-.upcoming-page-container {
+/* Upcoming.css and Previous.css */
+.upcoming-container,
+.previous-container {
   padding: 20px;
 }
 
-.upcoming-events-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.upcoming-grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 35px;
-  width: 100%;
+.event-box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
 }
 
-.upcoming-grid-item {
-  display: flex;
-  flex-direction: column;
-  align-items: right;
-  padding: 2px;
-  border: 0.1px solid #524d63;
+.event-box {
+  background-color: #333; /* Darker grey */
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 25px; /* Increased margin */
+  flex-basis: calc(33.333% - 30px); /* Adjusted for extra margin */
+  padding: 20px;
   border-radius: 8px;
-  background-color: #17172d;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ 
+}
+
+
+.event-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .event-title {
-  font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 10px;
-  align-items: right;
 }
 
-.event-details, .event-participants {
+.event-date {
+  font-size: 0.9em;
+  color: #ccc;
   margin-bottom: 10px;
-  text-align: left;
 }
 
-.action-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-top: 10px;
+.event-description {
+  margin-bottom: 20px;
 }
 
 .start-button {
-  background-color: #1976d2;
-  color: #fff;
+  background-color: rgb(57, 57, 235);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 .start-button:hover {
-  background-color: #0d47a1;
-}
-
-.copy-invitation-button {
-  background-color: rgba(255, 255, 255, 0.3); /* Transparent white */
-  color: #1976d2;
-}
-
-.copy-invitation-button:hover {
-  background-color: rgba(255, 255, 255, 0.6); /* Slightly less transparent on hover */
+  background-color: darkblue;
 }

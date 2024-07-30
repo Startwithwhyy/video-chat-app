@@ -4,7 +4,7 @@ import Peer from 'simple-peer';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FaMicrophone, FaMicrophoneSlash, FaVideo, FaVideoSlash, FaPhone, FaTimes, FaRecordVinyl, FaStop } from 'react-icons/fa';
 import './VideoChatPage.css';
-import logo from './logo.png'; // Make sure to import your logo
+import Layout from './Layout'; // Import the Layout component
 
 const socket = io.connect('http://localhost:5000');
 
@@ -184,11 +184,7 @@ function VideoChatPage() {
   };
 
   return (
-    <>
-      <header>
-        <img src={logo} alt="MeetUp Logo" style={{ height: '30px', marginRight: '10px' }} />
-        MeetUp
-      </header>
+    <Layout> {/* Wrap content with Layout component */}
       <div className="container">
         <div className="video-container">
           <div className="video">
@@ -279,7 +275,7 @@ function VideoChatPage() {
           </div>
         )}
       </div>
-    </>
+    </Layout>
   );
 }
 

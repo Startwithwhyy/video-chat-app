@@ -1,39 +1,85 @@
 /* Previous.css */
-.previous-page-container {
-    padding: 20px;
-    color: #fff;
-  }
-  
-  .previous-page-container h2 {
-    margin-bottom: 20px;
-  }
-  
-  .previous-grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
-  .previous-grid-item {
-    background-color: #1e1e2e;
-    border: 1px solid #333;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .event-title {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-  
-  .event-details {
-    font-size: 0.9em;
-    margin-bottom: 10px;
-  }
-  
-  .event-participants {
-    font-size: 0.8em;
-    color: #888;
-  }
-  
+.previous-container {
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.event-box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.event-box {
+  background-color: #2d2d2d; /* Darker grey */
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  flex-basis: calc(33.333% - 20px); /* 3 boxes per row */
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.event-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.event-title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.event-date {
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+.event-details {
+  margin: 15px 0;
+  font-size: 0.9em;
+}
+
+.event-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details-button, .delete-button {
+  background-color: rgb(143, 141, 50);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.details-button:hover {
+  background-color: rgb(45, 11, 55);
+}
+
+.delete-button {
+  background-color: rgb(72, 13, 90);
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}

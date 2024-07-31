@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Typography, Card, CardContent, Grid } from '@mui/material';
+
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import GroupIcon from '@mui/icons-material/Group';
 import ScheduleIcon from '@mui/icons-material/Schedule';
@@ -106,19 +107,18 @@ const HomePage = () => {
           </Grid>
         </Grid>
         <div className="meeting-history">
-          <Typography variant="h6" gutterBottom>Meeting History</Typography>
-          <Card className="history-card">
-            <CardContent>
-              <Typography variant="body2">Meeting with Team A - 10:00 AM</Typography>
-            </CardContent>
-          </Card>
-          <Card className="history-card">
-            <CardContent>
-              <Typography variant="body2">Project Discussion - 2:00 PM</Typography>
-            </CardContent>
-          </Card>
-          {/* Add more history cards as needed */}
-        </div>
+      <Typography variant="h6" gutterBottom>Meeting History</Typography>
+      <Card style={{ backgroundColor: '#777', padding: '16px', marginBottom: '20px', borderRadius: '8px', color: '#fff' }}>
+        <CardContent>
+          <Typography variant="body2">Meeting with Team A - 10:00 AM</Typography>
+        </CardContent>
+      </Card>
+      <Card style={{ backgroundColor: '#666', padding: '16px', marginBottom: '20px', borderRadius: '8px', color: '#fff' }}>
+        <CardContent>
+          <Typography variant="body2">Project Discussion - 2:00 PM</Typography>
+        </CardContent>
+      </Card>
+      </div>
       </div>
     </Layout>
   );

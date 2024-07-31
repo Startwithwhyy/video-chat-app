@@ -5,6 +5,7 @@ import HomePage from './HomePage';
 import VideoChatPage from './VideoChatPage';
 import Upcoming from './Upcoming';
 import Previous from './Previous';
+import Personalroom from './Personalroom';
 import './App.css'; // Global styles
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/video" element={<VideoChatPage />} />
         <Route path="/upcoming" element={<Upcoming />} />
         <Route path="/previous" element={<Previous />} />
+        <Route path="/personal-room" element={<Personalroom />} />
       </Routes>
     </Router>
   );

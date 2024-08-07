@@ -1,8 +1,22 @@
+
+
 import React, { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client';
 import Peer from 'simple-peer';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { FaMicrophone, FaMicrophoneSlash, FaVideo, FaVideoSlash, FaPhone, FaTimes, FaRecordVinyl, FaStop } from 'react-icons/fa';
+import {
+  FaMicrophone,
+  FaMicrophoneSlash,
+  FaVideo,
+  FaVideoSlash,
+  FaPhone,
+  FaPhoneSlash,
+  FaRecordVinyl,
+  FaStop,
+  FaSmile,
+  FaUserPlus,
+  FaShareAlt,
+} from 'react-icons/fa';
 import './VideoChatPage.css';
 import Layout from './Layout'; // Import the Layout component
 
@@ -24,6 +38,8 @@ function VideoChatPage() {
   const [isRecording, setIsRecording] = useState(false);
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [recordedChunks, setRecordedChunks] = useState([]);
+  const [showReactions, setShowReactions] = useState(false);
+  const [participants, setParticipants] = useState([]);
   const myVideo = useRef();
   const userVideo = useRef();
   const connectionRef = useRef();
@@ -55,6 +71,14 @@ function VideoChatPage() {
     socket.on('callAccepted', () => {
       setIsRinging(false);
       setCallAccepted(true);
+    });
+
+    socket.on('newParticipant', (participant) => {
+      setParticipants((prev) => [...prev, participant]);
+    });
+
+    socket.on('removeParticipant', (participantId) => {
+      setParticipants((prev) => prev.filter(p => p.id !== participantId));
     });
 
     return () => {
@@ -183,6 +207,28 @@ function VideoChatPage() {
     setIsRecording(false);
   };
 
+  const toggleReactions = () => {
+    setShowReactions((prev) => !prev);
+  };
+
+  const addParticipant = () => {
+    // Implementation depends on how you handle participants
+    const participantId = prompt("Enter participant ID:");
+    if (participantId) {
+      socket.emit('addParticipant', participantId);
+    }
+  };
+
+  const shareScreen = () => {
+    navigator.mediaDevices.getDisplayMedia({ video: true }).then((stream) => {
+      if (myVideo.current) {
+        myVideo.current.srcObject = stream;
+      }
+    }).catch((error) => {
+      console.error('Error sharing screen:', error);
+    });
+  };
+
   return (
     <Layout> {/* Wrap content with Layout component */}
       <div className="container">
@@ -196,84 +242,57 @@ function VideoChatPage() {
               <button onClick={toggleCamera}>
                 {cameraOn ? <FaVideoSlash /> : <FaVideo />}
               </button>
-              {!callAccepted && !callEnded ? (
-                <button
-                  onClick={() => callUser(idToCall)}
-                  style={{ backgroundColor: 'green' }}
-                >
-                  <FaPhone />
-                </button>
-              ) : (
-                <button
-                  onClick={leaveCall}
-                  style={{ backgroundColor: 'red' }}
-                >
-                  <FaPhone />
-                </button>
+              <button onClick={shareScreen} className="screen-share-button">
+                <FaShareAlt />
+              </button>
+              <button onClick={addParticipant} className="add-participant-button">
+                <FaUserPlus />
+              </button>
+              <button onClick={toggleReactions} className="reaction-button">
+                <FaSmile />
+              </button>
+              {showReactions && (
+                <div className="reaction-dropdown">
+                  <span className="reaction">😊</span>
+                  <span className="reaction">😢</span>
+                  <span className="reaction">😂</span>
+                  {/* Add more emojis here */}
+                </div>
               )}
-              {isRecording ? (
-                <button onClick={stopRecording} style={{ backgroundColor: 'red' }}>
-                  <FaStop />
-                </button>
-              ) : (
-                <button onClick={startRecording} style={{ backgroundColor: 'blue' }}>
-                  <FaRecordVinyl />
-                </button>
-              )}
+              <button onClick={isRecording ? stopRecording : startRecording}>
+                {isRecording ? <FaStop /> : <FaRecordVinyl />}
+              </button>
+              <button onClick={callAccepted && !callEnded ? leaveCall : () => callUser(idToCall)}>
+                {callAccepted && !callEnded ? <FaPhoneSlash /> : <FaPhone />}
+              </button>
             </div>
           </div>
-          {callAccepted && !callEnded && (
-            <div className="video">
-              <video playsInline ref={userVideo} autoPlay />
+          <div className="video">
+            {callAccepted && !callEnded && <video playsInline ref={userVideo} autoPlay />}
+          </div>
+        </div>
+        <div className="call-controls">
+          {receivingCall && !callAccepted && (
+            <div className="caller-notification">
+              <h2>{name} is calling...</h2>
+              <div className="answer-decline-buttons">
+                <button className="answer-button" onClick={answerCall}>Answer</button>
+                <button className="decline-button" onClick={leaveCall}>Decline</button>
+              </div>
             </div>
           )}
         </div>
-
         <div className="controls">
           <input
             type="text"
-            placeholder="Your Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <CopyToClipboard text={me} onCopy={handleCopy}>
-            <button className="copy-id-button">Copy ID</button>
-          </CopyToClipboard>
-          <input
-            type="text"
-            placeholder="ID to Call"
             value={idToCall}
             onChange={(e) => setIdToCall(e.target.value)}
+            placeholder="Enter ID to call"
           />
+          <CopyToClipboard text={me}>
+            <button className="copy-id-button" onClick={handleCopy}>Copy ID</button>
+          </CopyToClipboard>
         </div>
-
-        {receivingCall && !callAccepted && (
-          <div className="caller-notification">
-            <h2>{name} is calling...</h2>
-            <div className="answer-decline-buttons">
-              <button
-                className="answer-button"
-                onClick={answerCall}
-                style={{ backgroundColor: 'green' }}
-              >
-                <FaPhone />
-              </button>
-              <button
-                className="decline-button"
-                onClick={leaveCall}
-                style={{ backgroundColor: 'red' }}
-              >
-                <FaTimes />
-              </button>
-            </div>
-          </div>
-        )}
-
-        {isRinging && (
-          <div className="caller-notification">
-            <h2>Calling...</h2>
-          </div>
-        )}
       </div>
     </Layout>
   );

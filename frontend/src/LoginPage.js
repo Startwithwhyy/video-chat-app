@@ -9,6 +9,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
+  const [birthdate, setBirthdate] = useState(''); // New state for birthdate
   const navigate = useNavigate();
 
   const handleToggle = () => {
@@ -24,7 +25,7 @@ const LoginPage = () => {
         return;
       }
 
-      console.log('Sign-up:', { name, username, email, password });
+      console.log('Sign-up:', { name, username, email, password, birthdate });
       // Redirect to the home page after successful sign-up
       navigate('/home');
     } else {
@@ -55,7 +56,24 @@ const LoginPage = () => {
     // Password validation
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
     if (!password || !passwordRegex.test(password)) {
-      alert('Password must be at least 8 characters long and contain at least one symbol, one number, and one alphabet character.');
+      alert(
+        'Password must be at least 8 characters long and contain at least one symbol, one number, and one alphabet character.'
+      );
+      return false;
+    }
+
+    // Birthdate validation: Check if user is at least 13 years old
+    const today = new Date();
+    const birthDate = new Date(birthdate);
+    const age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+
+    if (
+      age < 13 ||
+      (age === 13 && monthDifference < 0) ||
+      (age === 13 && monthDifference === 0 && today.getDate() < birthDate.getDate())
+    ) {
+      alert('You must be at least 13 years old to sign up.');
       return false;
     }
 
@@ -132,6 +150,18 @@ const LoginPage = () => {
             required
           />
         </div>
+        {isSignUp && (
+          <div className="form-group">
+            <label htmlFor="birthdate">Birthdate:</label>
+            <input
+              type="date"
+              id="birthdate"
+              value={birthdate}
+              onChange={(e) => setBirthdate(e.target.value)}
+              required
+            />
+          </div>
+        )}
         <button type="submit" className="submit-button">
           {isSignUp ? 'Sign Up' : 'Login'}
         </button>

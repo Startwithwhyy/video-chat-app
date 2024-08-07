@@ -1,56 +1,10 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #1e1e1e; /* Dark background */
-  color: #ffffff; /* White text */
-}
-
-header {
-  text-align: center;
-  padding: 20px;
-  background-color: #333; /* Darker header */
-  border-bottom: 1px solid #555; /* Border for separation */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff; /* White text */
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  margin-top: 20px; /* Adjusted to give space above the container */
-}
-
-.video-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  position: relative; /* Make sure it can be positioned absolutely */
-}
-
-.video {
-  position: absolute; /* Absolute positioning to move it up */
-  top: 0; /* Aligns it to the top of its container */
-  left: 50%;
-  transform: translateX(-50%); /* Centers the video horizontally */
-  margin: 0;
-}
-
-video {
-  width: 400px;
-  height: 300px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-}
-
 .video-buttons {
-  position: absolute;
+  position: relative
+  
+  ;
   bottom: 10px;
-  left: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 10px;
 }
@@ -62,23 +16,29 @@ video {
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .video-buttons button:hover {
   background-color: #777; /* Slightly lighter on hover */
+  transform: scale(1.1); /* Slightly larger on hover */
 }
 
-.controls {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+.call-button {
+  background-color: #555; /* Default button background */
 }
 
-.controls input {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
+.call-button.ringing {
+  background-color: #28a745; /* Green for ringing */
+}
+
+.call-button.active {
+  background-color: #dc3545; /* Red for active call */
+}
+
+.call-button:hover {
+  background-color: #777; /* Slightly lighter on hover */
+  transform: scale(1.1); /* Slightly larger on hover */
 }
 
 .copy-id-button {
@@ -93,6 +53,35 @@ video {
 
 .copy-id-button:hover {
   background-color: #777; /* Slightly lighter on hover */
+  /* Remove transform scaling */
+}
+
+.copy-id-button:focus {
+  outline: none;
+}
+
+.copy-id-button:active {
+  background-color: #666; /* Even darker background on click */
+}
+
+.answer-button {
+  background-color: #28a745; /* Green background for answer */
+  color: #ffffff; /* White text */
+}
+
+.decline-button {
+  background-color: #dc3545; /* Red background for decline */
+  color: #ffffff; /* White text */
+}
+
+.answer-button:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: scale(1.1); /* Slightly larger on hover */
+}
+
+.decline-button:hover {
+  background-color: #c82333; /* Darker red on hover */
+  transform: scale(1.1); /* Slightly larger on hover */
 }
 
 .caller-notification {
@@ -104,11 +93,21 @@ video {
   background-color: #333; /* Darker notification background */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  color: #ffffff; /* White text */
 }
 
 .caller-notification h2 {
   margin: 0 0 10px 0;
-  color: #ffffff; /* White text */
+}
+
+.caller-notification .notification-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.caller-notification .notification-icons .icon {
+  font-size: 24px; /* Size of icons */
+  color: #ffffff; /* White color for icons */
 }
 
 .answer-decline-buttons {
@@ -122,13 +121,52 @@ video {
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.answer-button {
+  background-color: #28a745; /* Green background for answer */
+}
+
+.decline-button {
+  background-color: #dc3545; /* Red background for decline */
 }
 
 .answer-button:hover {
-  background-color: #28a745; /* Lighter green on hover */
+  background-color: #218838; /* Darker green on hover */
+  transform: scale(1.1); /* Slightly larger on hover */
 }
 
 .decline-button:hover {
-  background-color: #dc3545; /* Lighter red on hover */
+  background-color: #c82333; /* Darker red on hover */
+  transform: scale(1.1); /* Slightly larger on hover */
 }
+
+.reaction-button, .add-participant-button, .screen-share-button {
+  background-color: #555; /* Darker button background */
+}
+
+.reaction-button:hover, .add-participant-button:hover, .screen-share-button:hover {
+  background-color: #777; /* Slightly lighter on hover */
+  transform: scale(1.1); /* Slightly larger on hover */
+}
+
+.reaction-dropdown {
+  position: absolute;
+  bottom: 50px;
+  left: 10px;
+  background-color: #333;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+}
+
+.reaction {
+  cursor: pointer;
+  font-size: 20px;
+  color: #ffffff; /* White color for reactions */
+}
+
+

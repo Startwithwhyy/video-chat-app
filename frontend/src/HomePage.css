@@ -23,8 +23,14 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
   animation: fadeIn 2s ease-in-out; /* Fade-in animation */
-  opacity: 1; /* Ensure the image is visible */
+  opacity: 0; /* Start as invisible */
   animation-fill-mode: forwards; /* Ensure the image stays visible after the animation */
+  transition: opacity 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Date and time */
@@ -156,7 +162,7 @@
   display: flex;
   align-items: center;
   justify-content: center; /* Center items horizontally */
-  background-color: #333;
+  background-color: black;
   color: #fff;
   padding: 10px;
   border-bottom: none; /* Remove bottom border */

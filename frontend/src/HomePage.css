@@ -23,8 +23,14 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
   animation: fadeIn 2s ease-in-out; /* Fade-in animation */
-  opacity: 1; /* Ensure the image is visible */
+  opacity: 0; /* Start as invisible */
   animation-fill-mode: forwards; /* Ensure the image stays visible after the animation */
+  transition: opacity 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Date and time */
@@ -34,16 +40,15 @@
   left: 16px;
   color: #fff;
   z-index: 1;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Optional: add text shadow for better visibility */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); 
 }
 
-/* Second row: Action buttons */
 .action-buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 50px 0;
-  padding: 0 50px; /* Add some padding for better alignment */
+  padding: 0 50px; 
 }
 
 .action-button {
@@ -156,7 +161,7 @@
   display: flex;
   align-items: center;
   justify-content: center; /* Center items horizontally */
-  background-color: #333;
+  background-color: #100f0f;
   color: #fff;
   padding: 10px;
   border-bottom: none; /* Remove bottom border */
@@ -176,7 +181,7 @@
   border-radius: 50%; /* Rounded shape */
   cursor: pointer; /* Cursor style */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-  transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+  transition: transform 0.3s ease-in-out; 
 }
 
 .profile-icon:hover {
